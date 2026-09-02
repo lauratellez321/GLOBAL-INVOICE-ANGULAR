@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #172033;
+  font:
+    16px system-ui,
+    -apple-system,
+    sans-serif;
+}
+.card {
+  padding: 24px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 9px #17203318;
+}
+input,
+select,
+button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cad2df;
+  border-radius: 7px;
+  font: inherit;
+}
+label {
+  display: block;
+  margin: 12px 0 5px;
+}
+button {
+  width: auto;
+  margin-top: 20px;
+  border: 0;
+  background: #1667c7;
+  color: white;
+  cursor: pointer;
+}
+.muted {
+  color: #64748b;
+}
