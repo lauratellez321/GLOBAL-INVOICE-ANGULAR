@@ -1,0 +1,14 @@
+.login-card {
+  max-width: 420px;
+  margin: 12vh auto;
+  padding: 24px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 9px #17203318;
+}
+.login-card p {
+  color: #64748b;
+}
+.login-card .error {
+  color: #bd1e1e;
+}

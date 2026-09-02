@@ -1,0 +1,10 @@
+<nav *ngIf="auth.role">
+  <a routerLink="/invoices">Facturas</a>
+  <a *ngIf="auth.role === 'OPERATOR'" routerLink="/new-invoice"
+    >Nueva factura</a
+  >
+  <a *ngIf="auth.role === 'AUDITOR'" routerLink="/dashboard">Dashboard</a>
+  <span class="spacer"></span><span>{{ auth.role }}</span>
+  <button (click)="auth.logout()">Salir</button>
+</nav>
+<main><router-outlet /></main>
