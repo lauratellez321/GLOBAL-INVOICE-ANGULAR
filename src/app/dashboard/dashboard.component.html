@@ -1,0 +1,16 @@
+<section class="card">
+  <h1>Dashboard</h1>
+  <p class="muted">Total facturado por tipo de factura.</p>
+  <div class="summary" *ngIf="rows.length; else empty">
+    <div *ngFor="let row of rows">
+      <strong>{{ labels[row.type] }}</strong
+      ><br />{{ row.total | currency }}
+    </div>
+  </div>
+  <ng-template #empty
+    ><p class="muted">Aún no hay facturas registradas.</p></ng-template
+  >
+  <div class="chart">
+    <canvas baseChart [data]="data" [type]="'bar'"></canvas>
+  </div>
+</section>

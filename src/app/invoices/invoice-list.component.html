@@ -1,0 +1,55 @@
+<section class="card">
+  <h1>Facturas</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Subtotal</th>
+        <th>Total a pagar</th>
+        <th *ngIf="auth.role === 'OPERATOR'">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let invoice of invoices">
+      <tr>
+        <td>{{ invoice.id }}</td>
+        <td>{{ labels[invoice.type] || invoice.type }}</td>
+        <td>{{ invoice.subtotal | currency }}</td>
+        <td>
+          <strong>{{ invoice.total | currency }}</strong
+          ><small>{{ invoice.totalInWords }}</small>
+        </td>
+        <td *ngIf="auth.role === 'OPERATOR'">
+          <button (click)="edit(invoice)">Editar</button
+          ><button (click)="remove(invoice)">Eliminar</button>
+        </td>
+      </tr>
+      <tr *ngIf="editingId === invoice.id">
+        <td colspan="5">
+          <form [formGroup]="editForm" (ngSubmit)="save(invoice.id)">
+            <label
+              >Tipo
+              <select formControlName="type">
+                <option
+                  *ngFor="let item of labels | keyvalue"
+                  [value]="item.key"
+                >
+                  {{ item.value }}
+                </option>
+              </select></label
+            ><label
+              >Subtotal
+              <input type="number" formControlName="subtotal" /></label
+            ><label *ngIf="editForm.value.type === 'EXPORT'"
+              >Código Aduanero <input formControlName="customsCode" /></label
+            ><button [disabled]="editForm.invalid">Guardar</button
+            ><button type="button" (click)="cancel()">Cancelar</button>
+            <p class="error" *ngIf="error">{{ error }}</p>
+          </form>
+        </td>
+      </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,33 @@
+<section class="card form-card">
+  <h1>Nueva factura</h1>
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <label for="type">Tipo de factura</label
+    ><select id="type" formControlName="type">
+      <option *ngFor="let type of types" [value]="type.code">
+        {{ type.code }}
+      </option>
+    </select>
+    <ng-container *ngIf="form.value.type === 'EXPORT'"
+      ><label for="customsCode">Código Aduanero</label
+      ><input id="customsCode" formControlName="customsCode"
+    /></ng-container>
+    <label for="subtotal">Subtotal</label
+    ><input id="subtotal" type="number" formControlName="subtotal" />
+    <p class="error" *ngIf="error">{{ error }}</p>
+    <button [disabled]="form.invalid">Crear factura</button>
+  </form>
+</section>
+<section class="card form-card">
+  <h2>Crear tipo de factura</h2>
+  <form [formGroup]="typeForm" (ngSubmit)="addType()">
+    <label>Nombre</label
+    ><input formControlName="code" placeholder="ONG" /><label>IVA (%)</label
+    ><input type="number" formControlName="vatRate" /><label
+      >Retención (%)</label
+    ><input type="number" formControlName="withholdingRate" /><button
+      [disabled]="typeForm.invalid"
+    >
+      Guardar tipo
+    </button>
+  </form>
+</section>

@@ -1,0 +1,14 @@
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+.summary div {
+  padding: 16px;
+  border-radius: 8px;
+  background: #edf5ff;
+}
+.chart {
+  height: 360px;
+  margin-top: 24px;
+}

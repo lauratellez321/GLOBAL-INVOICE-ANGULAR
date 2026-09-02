@@ -1,0 +1,18 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e5eaf1;
+}
+small {
+  display: block;
+  max-width: 280px;
+  margin-top: 5px;
+  color: #476582;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
