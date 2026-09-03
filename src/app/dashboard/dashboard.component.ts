@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { BaseChartDirective } from "ng2-charts";
 import type { ChartConfiguration } from "chart.js";
-import { io, Socket } from "socket.io-client";
+import { Subscription, timer } from "rxjs";
 import { API } from "../auth.service";
 
 interface DashboardTotal {
@@ -18,7 +18,7 @@ interface DashboardTotal {
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   private readonly http = inject(HttpClient);
-  private readonly socket: Socket = io("http://localhost:3000");
+  private refreshSubscription?: Subscription;
   rows: DashboardTotal[] = [];
   labels: Record<string, string> = {};
   data: ChartConfiguration<"bar">["data"] = {
@@ -34,12 +34,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.labels = Object.fromEntries(
           types.map((type) => [type.code, type.name]),
         );
-        this.load();
+        // Las Functions de Vercel no alojan un servidor Socket.IO persistente.
+        // Se actualiza automáticamente sin abrir una conexión WebSocket.
+        this.refreshSubscription = timer(0, 15_000).subscribe(() => this.load());
       });
-    this.socket.on("invoice-created", () => this.load());
   }
   ngOnDestroy() {
-    this.socket.disconnect();
+    this.refreshSubscription?.unsubscribe();
   }
   private load() {
     this.http.get<DashboardTotal[]>(`${API}/dashboard`).subscribe((rows) => {
