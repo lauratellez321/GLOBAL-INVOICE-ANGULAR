@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { API, AuthService } from "../auth.service";
 import type { Invoice } from "./invoice.model";
+import Swal from 'sweetalert2';
 
 @Component({
   standalone: true,
@@ -26,6 +27,6 @@ export class InvoiceListComponent implements OnInit {
   }
   edit(invoice:Invoice){this.editingId=invoice.id;this.editForm.setValue({type:invoice.type,subtotal:invoice.subtotal,customsCode:invoice.customsCode??''});}
   cancel(){this.editingId=null;}
-  save(id:number){const value=this.editForm.getRawValue();const body=value.type==='EXPORT'?value:{type:value.type,subtotal:value.subtotal};this.http.put<Invoice>(`${API}/invoices/${id}`,body).subscribe({next:invoice=>{this.invoices=this.invoices.map(item=>item.id===id?{...invoice,totalInWords:item.totalInWords}:item);this.cancel();},error:r=>this.error=r.error.message});}
-  remove(invoice:Invoice){if(confirm(`¿Eliminar factura #${invoice.id}?`))this.http.delete(`${API}/invoices/${invoice.id}`).subscribe(()=>this.invoices=this.invoices.filter(item=>item.id!==invoice.id));}
+  save(id:number){const value=this.editForm.getRawValue();const body=value.type==='EXPORT'?value:{type:value.type,subtotal:value.subtotal};this.http.put<Invoice>(`${API}/invoices/${id}`,body).subscribe({next:invoice=>{this.invoices=this.invoices.map(item=>item.id===id?{...invoice,totalInWords:item.totalInWords}:item);this.cancel();Swal.fire({icon:'success',title:'Factura actualizada',timer:1600,showConfirmButton:false});},error:r=>Swal.fire({icon:'error',title:'No fue posible guardar',text:r.error.message})});}
+  async remove(invoice:Invoice){const result=await Swal.fire({title:'¿Eliminar factura?',text:`La factura #${invoice.id} no se podrá recuperar.`,icon:'warning',showCancelButton:true,confirmButtonText:'Sí, eliminar',cancelButtonText:'Cancelar',confirmButtonColor:'#c91522'});if(result.isConfirmed)this.http.delete(`${API}/invoices/${invoice.id}`).subscribe({next:()=>{this.invoices=this.invoices.filter(item=>item.id!==invoice.id);Swal.fire({icon:'success',title:'Factura eliminada',timer:1600,showConfirmButton:false});},error:()=>Swal.fire({icon:'error',title:'No fue posible eliminar la factura'})});}
 }

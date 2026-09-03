@@ -1,14 +1,1 @@
-.login-card {
-  max-width: 420px;
-  margin: 12vh auto;
-  padding: 24px;
-  border-radius: 12px;
-  background: white;
-  box-shadow: 0 2px 9px #17203318;
-}
-.login-card p {
-  color: #64748b;
-}
-.login-card .error {
-  color: #bd1e1e;
-}
+.login-card { max-width:455px; margin:10vh auto; padding:38px; border:1px solid #ead5d4; border-radius:20px; background:#fffdfc; box-shadow:0 18px 45px #74131b18; }.login-brand{display:flex;align-items:center;gap:15px;margin-bottom:16px}.login-brand img{width:62px;height:62px;object-fit:cover;border-radius:16px;box-shadow:0 6px 16px #a80f1b38}.login-brand span{color:#b31722;font-size:.7rem;font-weight:800;letter-spacing:.1em}.login-card h1 { margin:3px 0 0; font-size:2rem; color:#641017; }.login-card p { color:#77736d; margin-bottom:24px; }.login-card .login-intro{line-height:1.55}.login-card button { width:100%; margin-top:26px; }.login-card .error { color:#b42318; }
