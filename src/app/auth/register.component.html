@@ -1,0 +1,24 @@
+<section class="register-card">
+  <header class="register-brand">
+    <img src="assets/davivienda-logo.webp" alt="Logo Global Invoice" />
+    <div>
+      <span>NUEVA CUENTA</span>
+      <h1>Regístrate en Global Invoice</h1>
+    </div>
+  </header>
+  <p>Crea tus credenciales y selecciona el perfil con el que trabajarás.</p>
+  <label for="register-email">Correo</label>
+  <input id="register-email" [(ngModel)]="email" type="email" autocomplete="email" />
+  <label for="register-password">Contraseña</label>
+  <input id="register-password" [(ngModel)]="password" type="password" minlength="6" autocomplete="new-password" />
+  <label for="register-confirmation">Confirmar contraseña</label>
+  <input id="register-confirmation" [(ngModel)]="confirmation" type="password" minlength="6" autocomplete="new-password" />
+  <label for="register-role">Rol</label>
+  <select id="register-role" [(ngModel)]="role">
+    <option value="OPERATOR">Operador</option>
+    <option value="AUDITOR">Auditor</option>
+  </select>
+  <p class="error" *ngIf="error">{{ error }}</p>
+  <button (click)="submit()" [disabled]="loading">{{ loading ? "Creando cuenta..." : "Crear cuenta" }}</button>
+  <p class="login-link">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+</section>
