@@ -2,7 +2,16 @@ import { Injectable, inject } from "@angular/core";
 import { HttpClient, HttpInterceptorFn } from "@angular/common/http";
 import { Router, CanActivateFn } from "@angular/router";
 import { tap } from "rxjs";
-const API = "http://localhost:3000/api";
+
+declare global {
+  interface Window {
+    __GLOBAL_INVOICE_API_URL__?: string;
+  }
+}
+
+const localApiUrl = "http://localhost:3000/api";
+const API = window.__GLOBAL_INVOICE_API_URL__ ||
+  (window.location.hostname === "localhost" ? localApiUrl : "/api");
 @Injectable({ providedIn: "root" })
 export class AuthService {
   private http = inject(HttpClient);
