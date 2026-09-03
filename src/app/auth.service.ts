@@ -31,6 +31,9 @@ export class AuthService {
         }),
       );
   }
+  register(email: string, password: string, role: "OPERATOR" | "AUDITOR") {
+    return this.http.post(`${API}/auth/register`, { email, password, role });
+  }
   logout() {
     localStorage.clear();
     this.role = null;
