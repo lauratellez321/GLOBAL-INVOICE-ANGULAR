@@ -21,13 +21,13 @@
           ><small>{{ invoice.totalInWords }}</small>
         </td>
         <td *ngIf="auth.role === 'OPERATOR'">
-          <button (click)="edit(invoice)">Editar</button
-          ><button (click)="remove(invoice)">Eliminar</button>
+          <button class="edit-button" (click)="edit(invoice)">Editar</button
+          ><button class="delete-button" (click)="remove(invoice)">Eliminar</button>
         </td>
       </tr>
       <tr *ngIf="editingId === invoice.id">
         <td colspan="5">
-          <form [formGroup]="editForm" (ngSubmit)="save(invoice.id)">
+          <form class="edit-form" [formGroup]="editForm" (ngSubmit)="save(invoice.id)">
             <label
               >Tipo
               <select formControlName="type">
@@ -43,8 +43,8 @@
               <input type="number" formControlName="subtotal" /></label
             ><label *ngIf="editForm.value.type === 'EXPORT'"
               >Código Aduanero <input formControlName="customsCode" /></label
-            ><button [disabled]="editForm.invalid">Guardar</button
-            ><button type="button" (click)="cancel()">Cancelar</button>
+            ><div class="edit-actions"><button class="save-button" [disabled]="editForm.invalid">Guardar</button
+            ><button class="cancel-button" type="button" (click)="cancel()">Cancelar</button></div>
             <p class="error" *ngIf="error">{{ error }}</p>
           </form>
         </td>

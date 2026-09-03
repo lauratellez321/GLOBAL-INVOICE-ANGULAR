@@ -1,18 +1,3 @@
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th,
-td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #e5eaf1;
-}
-small {
-  display: block;
-  max-width: 280px;
-  margin-top: 5px;
-  color: #476582;
-  font-size: 0.8rem;
-  line-height: 1.35;
-}
+table { width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border:1px solid #ead5d4; border-radius:10px; } th { padding:12px 14px; background:#f8e8e7; color:#8b2529; font-size:.75rem; letter-spacing:.05em; text-transform:uppercase; } td { padding:15px 14px; border-top:1px solid #f0e3e1; } tbody tr:hover { background:#fff8f7; } small { display:block; max-width:280px; margin-top:6px; color:#77736d; font-size:.78rem; line-height:1.4; } td button { margin:0 4px 0 0; padding:7px 10px; font-size:.82rem; } .edit-button { border-color:#1769aa; background:#1769aa; }.edit-button:hover { background:#125486; }.delete-button { border-color:#c91522; background:#c91522; }.delete-button:hover { background:#a80f1b; } form { display:flex; gap:12px; align-items:end; flex-wrap:wrap; padding:8px; } form label { margin:0; } form button { margin:0; }
+.save-button{background:#1769aa;border-color:#1769aa}.save-button:hover{background:#125486}.cancel-button{background:#fff;color:#5f5a54;border-color:#c9c4bc}.cancel-button:hover{background:#f0eeea}
+.edit-form{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:16px;align-items:start;padding:18px;border:1px solid #ead5d4;border-radius:10px;background:#fffafa}.edit-form label{display:flex;flex-direction:column;gap:6px;height:70px;margin:0!important;color:#6c5554;font-size:.82rem;font-weight:700;line-height:18px}.edit-form input,.edit-form select{height:42px;min-width:0;margin:0;padding:10px 12px;background:#fff;line-height:20px}.edit-actions{display:flex;grid-column:1 / -1;justify-content:flex-end;gap:8px;width:100%;padding-top:2px}.edit-actions button{margin:0}@media(max-width:760px){.edit-form{grid-template-columns:1fr}.edit-form label{height:auto}.edit-actions{justify-content:flex-start}}

@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   data: ChartConfiguration<"bar">["data"] = {
     labels: [],
     datasets: [
-      { data: [], label: "Total facturado", backgroundColor: "#1667c7" },
+      { data: [], label: "Total facturado", backgroundColor: "#e99595" },
     ],
   };
   ngOnInit() {
@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           {
             data: rows.map((row) => row.total),
             label: "Total facturado",
-            backgroundColor: "#1667c7",
+            backgroundColor: "#e99595",
           },
         ],
       };

@@ -1,5 +1,5 @@
-<section class="card form-card">
-  <h1>Nueva factura</h1>
+<div class="invoice-page"><section class="card form-card">
+  <h2 class="section-title">Nueva factura</h2>
   <form [formGroup]="form" (ngSubmit)="save()">
     <label for="type">Tipo de factura</label
     ><select id="type" formControlName="type">
@@ -18,7 +18,7 @@
   </form>
 </section>
 <section class="card form-card">
-  <h2>Crear tipo de factura</h2>
+  <h2 class="section-title">Crear tipo de factura</h2>
   <form [formGroup]="typeForm" (ngSubmit)="addType()">
     <label>Nombre</label
     ><input formControlName="code" placeholder="ONG" /><label>IVA (%)</label
@@ -31,3 +31,4 @@
     </button>
   </form>
 </section>
+</div>
