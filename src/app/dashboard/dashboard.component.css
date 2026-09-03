@@ -1,1 +1,28 @@
-.summary { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:14px; }.summary div { padding:18px; border:1px solid #efd3d3; border-radius:10px; background:#fff5f5; color:#62252a; }.summary strong { display:block; margin-bottom:6px; color:#a84b50; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; }.chart { height:360px; margin-top:28px; padding:16px; border:1px solid #efd3d3; border-radius:12px; background:#fffafa; }
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+}
+.summary div {
+  padding: 18px;
+  border: 1px solid #efd3d3;
+  border-radius: 10px;
+  background: #fff5f5;
+  color: #62252a;
+}
+.summary strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #a84b50;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.chart {
+  height: 360px;
+  margin-top: 28px;
+  padding: 16px;
+  border: 1px solid #efd3d3;
+  border-radius: 12px;
+  background: #fffafa;
+}
