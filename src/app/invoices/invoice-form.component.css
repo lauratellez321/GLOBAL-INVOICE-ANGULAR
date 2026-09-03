@@ -1,2 +1,39 @@
-.invoice-page{max-width:700px;margin:0 auto}.form-card { max-width:680px; }.form-card + .form-card { background:#fff7f6; }.form-card form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 18px; }.form-card button,.form-card .error { grid-column:1 / -1; }.section-title{display:flex;align-items:center;gap:10px;margin-bottom:20px;color:#76131a;font-size:1.45rem}.section-title::before{width:5px;height:28px;border-radius:4px;background:#c91522;content:"";}
-@media (max-width:620px) { .form-card form { grid-template-columns:1fr; } }
+.invoice-page {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.form-card {
+  max-width: 680px;
+}
+.form-card + .form-card {
+  background: #fff7f6;
+}
+.form-card form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 18px;
+}
+.form-card button,
+.form-card .error {
+  grid-column: 1 / -1;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #76131a;
+  font-size: 1.45rem;
+}
+.section-title::before {
+  width: 5px;
+  height: 28px;
+  border-radius: 4px;
+  background: #c91522;
+  content: "";
+}
+@media (max-width: 620px) {
+  .form-card form {
+    grid-template-columns: 1fr;
+  }
+}

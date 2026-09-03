@@ -1,6 +1,23 @@
 <nav *ngIf="auth.role">
-  <div class="brand"><img class="brand-logo" src="assets/davivienda-logo.webp" alt="Logo de Global Invoice"><div><strong>Global Invoice</strong><small>FACTURACIÓN</small></div></div>
-  <div class="nav-links"><a routerLink="/invoices">Facturas</a><a *ngIf="auth.role === 'OPERATOR'" routerLink="/new-invoice">Nueva factura</a><a *ngIf="auth.role === 'AUDITOR'" routerLink="/dashboard">Dashboard</a></div>
-  <div class="session"><span class="role">{{ auth.role === 'OPERATOR' ? 'OPERADOR' : 'AUDITOR' }}</span><button (click)="auth.logout()">Salir</button></div>
+  <div class="brand">
+    <img
+      class="brand-logo"
+      src="assets/davivienda-logo.webp"
+      alt="Logo de Global Invoice"
+    />
+    <div><strong>Global Invoice</strong><small>FACTURACIÓN</small></div>
+  </div>
+  <div class="nav-links">
+    <a routerLink="/invoices">Facturas</a
+    ><a *ngIf="auth.role === 'OPERATOR'" routerLink="/new-invoice"
+      >Nueva factura</a
+    ><a *ngIf="auth.role === 'AUDITOR'" routerLink="/dashboard">Dashboard</a>
+  </div>
+  <div class="session">
+    <span class="role">{{
+      auth.role === "OPERATOR" ? "OPERADOR" : "AUDITOR"
+    }}</span
+    ><button (click)="auth.logout()">Salir</button>
+  </div>
 </nav>
 <main><router-outlet /></main>
